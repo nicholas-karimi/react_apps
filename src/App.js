@@ -19,9 +19,9 @@ function App(props) {
     setTodoList([...todoList, task]);
   };
   // delete task
-  const deleteTask = taskName => {
+  const deleteTask = task_id => {
     const newTodoList = todoList.filter(task => {
-      if (task === taskName) {
+      if (task.id === task_id) {
         // remove task from list
         return false;
       } else {
@@ -44,8 +44,8 @@ function App(props) {
           return (
             <div>
               <ul>
-                <li>{task}</li>
-                <button onClick={() => deleteTask(task)}>X</button>
+                <li>{task.taskName}</li>
+                <button onClick={() => deleteTask(task.id)}>X</button>
               </ul>
             </div>
           );
