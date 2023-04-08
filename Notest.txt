@@ -1,0 +1,20 @@
+React Component
+
+Props
+
+
+JSX 
+
+States
+- are variables that holds data - can be a string, numbers
+- react initally renders a component once. It doesn't know it requires to re render to show new values
+of a variable by default
+Import useState Hook-a function
+import { useState } from 'react'
+
+declare State
+const [count, setCount] = useState(0) // sets count to 0
+- state is a variable that when it changes, react will be notified to re render the page
+
+Events 
+- Something that happens as a response to something else
