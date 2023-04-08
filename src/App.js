@@ -1,6 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 
+import Task from './Task';
+
 function App(props) {
   // track todos
   let [todoList, setTodoList] = useState([]);
@@ -15,6 +17,7 @@ function App(props) {
     const task = {
       id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
       taskName: newTask,
+      completed: false,
     };
     setTodoList([...todoList, task]);
   };
@@ -31,6 +34,20 @@ function App(props) {
     // console.log('Task Deleted');
     setTodoList(newTodoList);
   };
+
+  // Update Task
+
+  const completeTask = id => {
+    setTodoList(
+      todoList.map(task => {
+        if (task.id === id) {
+          return { ...task, completed: true };
+        } else {
+          return task;
+        }
+      })
+    );
+  };
   return (
     <div className="App">
       <div className="addTask">
@@ -42,12 +59,13 @@ function App(props) {
       <div className="list">
         {todoList.map(task => {
           return (
-            <div>
-              <ul>
-                <li>{task.taskName}</li>
-                <button onClick={() => deleteTask(task.id)}>X</button>
-              </ul>
-            </div>
+            <Task
+              taskName={task.taskName}
+              id={task.id}
+              completed={task.completed}
+              deleteTask={deleteTask}
+              completeTask={completeTask}
+            />
           );
         })}
       </div>
