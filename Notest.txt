@@ -62,3 +62,11 @@ To trigger the third stage, (Unmount) useEffect accepts a return statement.
     console.log('Component Unmounted');
     }
   });
+
+In react 18, UseEffect runs twice, mount and unounts beacuse of strict mode 
+
+APIs to Experiment
+1. https://catfact.ninja/fact
+2. https://jsonplaceholder.typicode.com/
+3. https://api.agify.io/?name=karimi => predict age given name
+https://excuser-three.vercel.app/ => Generate Excuses
