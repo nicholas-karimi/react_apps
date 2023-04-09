@@ -1,3 +1,13 @@
+React 
+
+Single Page Apps
+
+the problem with multipage apps with diff pages is that, when you go a specific page in that app,
+ you'll have to download all the html files for that page.
+
+ with react it downloads all js inside one html file making it more efficient and faster to navigate 
+
+
 React Component
 
 Props
@@ -69,4 +79,26 @@ APIs to Experiment
 1. https://catfact.ninja/fact
 2. https://jsonplaceholder.typicode.com/
 3. https://api.agify.io/?name=karimi => predict age given name
-https://excuser-three.vercel.app/ => Generate Excuses
+4. https://excuser-three.vercel.app/ => Generate Excuses
+
+React Router DOM 
+- main routing library for react 
+npm install react-router-dom
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+BrowserRouter - component used to define where exactly in our app we wnat to have our different routes
+Routes can be used to change a specific portion of our app
+
+Route - used to define evry route we want in the app 
+<Route path="/" element={} /> - an element is a component to be rendered when a page is loaded
+
+Router - tell react dom thast whatever is inside it can use react dom functionality
+- used to define where in your app you want to have access to react dom stuff
+wht to put inside router
+div>
+          <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/about">About</Link>
+        </div>
+Navbar are to be accessed "globally regardless of the page we're in. Provided by <Link /> component which is part of react dom

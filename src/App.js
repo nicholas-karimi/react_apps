@@ -1,42 +1,25 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-import Age from './Age';
-import Excuse from './Excuse';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import Menu from './pages/Menu';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import { Error } from './pages/Error';
+import Navbar from './pages/Navbar';
 
 function App() {
-  // using fetch api
-  // fetch('https://catfact.ninja/fact')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log(data);
-  //   });
-
-  const [catFact, setCatFact] = useState('');
-  const fetchCatFact = () => {
-    axios.get('https://catfact.ninja/fact').then(res => {
-      // console.log(res.data);
-      setCatFact(res.data.fact);
-    });
-  };
-  useEffect(() => {
-    fetchCatFact();
-  }, []);
-  /* using Axios
-  axios.get('https://catfact.ninja/fact').then(res => {
-    // console.log(res.data);
-    setCatFact(res.data.fact); // runs an infinite loop because the compoent mounts, and unmount overagain
-  }); */
-
   return (
     <div className="App">
-      <button onClick={fetchCatFact}>Generate Cat Facts</button>
-      <p>{catFact}</p>
-
-      <br />
-      {/* <Age /> */}
-      <Excuse />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="menu/" element={<Menu />} />
+          <Route path="about/" element={<About />} />
+          <Route path="contact/" element={<Contact />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
