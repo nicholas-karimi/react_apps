@@ -102,3 +102,19 @@ div>
           <Link to="/about">About</Link>
         </div>
 Navbar are to be accessed "globally regardless of the page we're in. Provided by <Link /> component which is part of react dom
+
+React State Mangement
+solves - idea of prop drilling 
+prop    drilling is the idea of passing prop to a component. The prop wont be used in that component. it's mainpurpose is to be passed down to other comnpinent.
+state management is just managing your state to proevent it from becoming messy
+
+createContex Hook - when you have gropus of component that have access to same set of data like a (state, variable or function),
+we craete a context of global context to hold all info to pass down. 
+
+global context 
+
+export const 'ContextName' = createContex()
+- then wrap it to component that will have access to it
+<ContextName.Provider>
+....
+</ContextName>

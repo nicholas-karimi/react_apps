@@ -13,18 +13,13 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider>
+      <AppContext.Provider value={{ username, setUsername }}>
         <Router>
           <Navbar />
 
           <Routes>
-            <Route path="/" element={<Home username={username} />} />
-            <Route
-              path="profile/"
-              element={
-                <Profile username={username} setUsername={setUsername} />
-              }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="profile/" element={<Profile />} />
             <Route path="about/" element={<About />} />
           </Routes>
         </Router>
