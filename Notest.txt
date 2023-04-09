@@ -11,10 +11,54 @@ States
 of a variable by default
 Import useState Hook-a function
 import { useState } from 'react'
+- we don't mutate states directly eg. like in js let name = [] cont person = "nick" name.push(person)
+in states, we use the function that is set to mutate the value
 
 declare State
 const [count, setCount] = useState(0) // sets count to 0
 - state is a variable that when it changes, react will be notified to re render the page
 
+
 Events 
 - Something that happens as a response to something else
+
+Component Lifecycle
+- how everything happens from the birth of a component to the death of a component
+Stages in React Lifecycle
+1. Mounting Stage
+2. Updating Stage
+3. Unmonting Stage
+
+useEffect hook
+- most important hook in react - replaces componentDidMount hook. You can have a project
+without useState hook but not useEffect hook.
+- use to control what happens depending which stage the lifecycle of a component is in.
+
+Why does 
+ useEffect(() => {
+    console.log('Component Mounted!');
+  });
+console twice - This is because, the strict mode is enabled to check if we're handling useEffect correctly.
+
+- allows us to execute an action when a component mounts 
+Use Cases
+- When you want to make API call to get data from somewhere.
+
+UseEffect allows us to handle the mount and update stages concurrently. But if you want to just handle once
+eg. Mount, supply an empty array as below
+ useEffect(() => {
+    console.log('Component Mounted!');
+  }, []);
+If you want to trigger an action everytime a specific stage changes, supply the state as below.
+ useEffect(() => {
+    console.log('Component Mounted!');
+  }, [text]);
+
+To trigger the third stage, (Unmount) useEffect accepts a return statement.
+ useEffect(() => {
+    console.log('Component Mounted!');
+
+    return () => {
+    console.log('Component Unmounted');
+    }
+  });
