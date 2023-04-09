@@ -104,6 +104,7 @@ div>
 Navbar are to be accessed "globally regardless of the page we're in. Provided by <Link /> component which is part of react dom
 
 React State Mangement
+import { createContext, useState } from 'react';
 solves - idea of prop drilling 
 prop    drilling is the idea of passing prop to a component. The prop wont be used in that component. it's mainpurpose is to be passed down to other comnpinent.
 state management is just managing your state to proevent it from becoming messy
@@ -118,3 +119,25 @@ export const 'ContextName' = createContex()
 <ContextName.Provider>
 ....
 </ContextName>
+
+React Query
+npm install @tanstack/react-query
+import { QueryClient } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+
+const client = new QueryClient();
+
+- set up at the highest level component 
+- allow update data when a user switch tabs - read more on React query
+<QueryClientProvider client={client}>
+....other components
+<QueryClientProvider />
+
+Query client configs
+const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false, //turns off data update whena user switched tabs
+      },
+    },
+  });

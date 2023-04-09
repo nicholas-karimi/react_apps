@@ -5,15 +5,21 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import About from './pages/About';
 import { createContext, useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const AppContext = createContext();
 
 function App() {
-  const [username, setUsername] = useState('Nicholas karimi');
-
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false, //turns off data update whena user switched tabs
+      },
+    },
+  });
   return (
     <div className="App">
-      <AppContext.Provider value={{ username, setUsername }}>
+      <QueryClientProvider client={client}>
         <Router>
           <Navbar />
 
@@ -23,7 +29,7 @@ function App() {
             <Route path="about/" element={<About />} />
           </Routes>
         </Router>
-      </AppContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
