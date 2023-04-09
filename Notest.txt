@@ -141,3 +141,8 @@ const client = new QueryClient({
       },
     },
   });
+
+React Form 
+npm install react-hook-form yup- gives access to functionalities such as display errors , submit form
+yup - only used for validation
+npm install @hookform/resolvers
