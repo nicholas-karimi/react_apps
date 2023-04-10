@@ -175,3 +175,12 @@ Person.propTypes = {
 
 Configure Typescript in react app 
 npx create-react-app . --template typescript
+
+Interface - a way to describe an object
+
+Redux Toolkit
+npm install @reduxjs/toolkit react-redux
+
+Store - a place to grop all your gloabl states
+reducers - functions that take in states and actions
+useDispatch, useSelector hook
