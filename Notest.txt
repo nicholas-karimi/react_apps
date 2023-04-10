@@ -104,6 +104,7 @@ div>
 Navbar are to be accessed "globally regardless of the page we're in. Provided by <Link /> component which is part of react dom
 
 React State Mangement
+(context hook)
 import { createContext, useState } from 'react';
 solves - idea of prop drilling 
 prop    drilling is the idea of passing prop to a component. The prop wont be used in that component. it's mainpurpose is to be passed down to other comnpinent.
@@ -146,3 +147,14 @@ React Form
 npm install react-hook-form yup- gives access to functionalities such as display errors , submit form
 yup - only used for validation
 npm install @hookform/resolvers
+
+React Custom Hooks
+Hook - are built into react. 
+Rules of React Hook
+- starts with useName, 
+- has to be called inside a component, 
+- cannot be called inside other functions(has to be at highest component)
+
+A hook is a function that allows abstraction of logic in react.
+A hook is different from functions in that it allows you to access diff state of an application.
+Hooks handle logic eg computational and not UI logic like functions do.
