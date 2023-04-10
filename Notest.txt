@@ -158,3 +158,20 @@ Rules of React Hook
 A hook is a function that allows abstraction of logic in react.
 A hook is different from functions in that it allows you to access diff state of an application.
 Hooks handle logic eg computational and not UI logic like functions do.
+
+
+TypeSafety 
+install prop-types 
+import { PropTypes } from "prop-types";
+Person.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  age: PropTypes.number,
+  isMarried: PropTypes.bool,
+  friends: PropTypes.arrayOf(PropTypes.string),
+};
+
+- PtopTypes are used as TypeScript alternative. Use them if you're unwilling to learn typescript
+
+Configure Typescript in react app 
+npx create-react-app . --template typescript
